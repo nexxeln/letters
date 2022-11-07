@@ -1,7 +1,7 @@
 export default function Index() {
   return (
-    <main>
-      <h2 className="text-blue-400">hi</h2>
+    <main className="">
+      <h1 className="">Letters</h1>
     </main>
   );
 }

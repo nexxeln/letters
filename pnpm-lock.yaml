@@ -15,6 +15,8 @@ specifiers:
   concurrently: ^7.5.0
   eslint: ^8.23.1
   postcss: ^8.4.18
+  prettier: ^2.7.1
+  prettier-plugin-tailwindcss: ^0.1.13
   prisma: ^4.5.0
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -40,6 +42,8 @@ devDependencies:
   concurrently: 7.5.0
   eslint: 8.27.0
   postcss: 8.4.18
+  prettier: 2.7.1
+  prettier-plugin-tailwindcss: 0.1.13_prettier@2.7.1
   prisma: 4.5.0
   tailwindcss: 3.2.2_postcss@8.4.18
   typescript: 4.8.4
@@ -6692,6 +6696,15 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier-plugin-tailwindcss/0.1.13_prettier@2.7.1:
+    resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
+    engines: {node: '>=12.17.0'}
+    peerDependencies:
+      prettier: '>=2.2.0'
+    dependencies:
+      prettier: 2.7.1
     dev: true
 
   /prettier/2.7.1:
