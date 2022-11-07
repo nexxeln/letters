@@ -1,7 +1,7 @@
 import { type ActionArgs, json, redirect } from "@remix-run/node";
 import { Form, useActionData, useTransition } from "@remix-run/react";
 import invariant from "tiny-invariant";
-import { createLetter } from "~/services/letters/create.server";
+import { createLetter } from "~/services/letters.server";
 
 type ActionData =
   | {

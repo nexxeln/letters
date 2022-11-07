@@ -1,4 +1,4 @@
-import { db } from "../db/db.server";
+import { db } from "./db.server";
 
 export const createLetter = async ({
   header,
@@ -11,6 +11,14 @@ export const createLetter = async ({
     data: {
       header,
       content,
+    },
+  });
+};
+
+export const getLetterFromId = async ({ id }: { id: string }) => {
+  return await db.letter.findUnique({
+    where: {
+      id,
     },
   });
 };
