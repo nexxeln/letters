@@ -9,3 +9,9 @@ datasource db {
   provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
+
+model Letter {
+  id      String @id @default(cuid())
+  header  String @db.String(100)
+  content String @db.String(10000)
+}
