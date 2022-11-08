@@ -85,7 +85,7 @@ const NewPage = () => {
             disabled={loading}
           >
             <span className="link px-2 py-1">
-              {loading ? "Creating" : "Submit"}
+              {loading ? "Publishing" : "Publish"}
             </span>
           </button>
         </div>
