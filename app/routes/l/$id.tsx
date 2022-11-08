@@ -27,9 +27,8 @@ const LetterPage = () => {
   const { header, html } = useLoaderData<typeof loader>();
 
   return (
-    <main>
-      <h1>{header}</h1>
-      <hr />
+    <main className="mx-auto flex w-96 flex-col items-start text-left">
+      <h1 className="py-10 text-3xl font-extrabold">{header}</h1>
       <p dangerouslySetInnerHTML={{ __html: html }} />
     </main>
   );

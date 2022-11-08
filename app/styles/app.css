@@ -81,6 +81,10 @@ body {
   @apply bg-dark font-inter text-gray-300;
 }
 
+p {
+  @apply py-2;
+}
+
 .link {
   text-decoration: none;
   background: linear-gradient(to right, #d1d5db, #d1d5db),
