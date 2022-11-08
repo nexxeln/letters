@@ -60,6 +60,7 @@ const NewPage = () => {
             id="header"
             type="text"
             placeholder="Header"
+            required
             className="w-96 rounded  border border-neutral-800 bg-neutral-900 px-4 py-2 placeholder:text-neutral-500 focus:outline-none"
           />
           <label htmlFor="content" className="font-semibold">
@@ -74,6 +75,7 @@ const NewPage = () => {
             cols={30}
             rows={15}
             placeholder="Your letter content goes here"
+            required
             className="w-96 rounded  border border-neutral-800 bg-neutral-900 px-4 py-2 placeholder:text-neutral-500 focus:outline-none"
           />
 
