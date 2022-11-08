@@ -11,44 +11,28 @@ type ActionData =
   | undefined;
 
 export const action = async ({ request }: ActionArgs) => {
-  console.log("hereeee");
-
   const formData = await request.formData();
 
   const header = formData.get("header");
   const content = formData.get("content");
-
-  console.log({
-    header,
-    content,
-  });
 
   const errors: ActionData = {
     header: header ? null : "Header is required",
     content: content ? null : "Content is required",
   };
 
-  console.log(errors);
-
   const hasErrors =
     errors.content === null && errors.content === null ? false : true;
 
-  console.log(hasErrors);
-
   if (hasErrors) {
-    console.log("hi");
-
     return json<ActionData>(errors);
   }
 
   invariant(typeof header === "string", "header must be a string");
   invariant(typeof content === "string", "content must be a string");
 
-  console.log("here");
-
   const letter = await createLetter({ header, content });
 
-  console.log("doe");
   return redirect(`/l/${letter.id}`);
 };
 
@@ -107,3 +91,12 @@ const NewPage = () => {
 };
 
 export default NewPage;
+
+export const ErrorBoundary = ({ error }: { error: Error }) => {
+  return (
+    <main>
+      Oh no! Something went wrong! Couldn't create letter.
+      <pre>{error.message}</pre>
+    </main>
+  );
+};

@@ -43,7 +43,7 @@ export const CatchBoundary = () => {
 export const ErrorBoundary = ({ error }: { error: Error }) => {
   return (
     <main>
-      Oh no! Something went wrong!
+      Oh no! Something went wrong! Couldn't fetch letter.
       <pre>{error.message}</pre>
     </main>
   );

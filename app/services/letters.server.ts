@@ -7,18 +7,26 @@ export const createLetter = async ({
   header: string;
   content: string;
 }) => {
-  return await db.letter.create({
-    data: {
-      header,
-      content,
-    },
-  });
+  try {
+    return await db.letter.create({
+      data: {
+        header,
+        content,
+      },
+    });
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 };
 
 export const getLetterFromId = async ({ id }: { id: string }) => {
-  return await db.letter.findUnique({
-    where: {
-      id,
-    },
-  });
+  try {
+    return await db.letter.findUnique({
+      where: {
+        id,
+      },
+    });
+  } catch (error: any) {
+    throw new Error(error.message);
+  }
 };
