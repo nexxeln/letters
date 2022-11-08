@@ -11,7 +11,8 @@ datasource db {
 }
 
 model Letter {
-  id      String @id @default(cuid())
-  header  String @db.String(100)
-  content String @db.String(10000)
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  header    String   @db.String(100)
+  content   String   @db.String(10000)
 }

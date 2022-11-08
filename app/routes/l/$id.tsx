@@ -1,5 +1,6 @@
 import { json, type LoaderArgs } from "@remix-run/node";
 import { useCatch, useLoaderData } from "@remix-run/react";
+import { formatRFC7231, parseJSON } from "date-fns";
 import { marked } from "marked";
 import sanitize from "sanitize-html";
 import invariant from "tiny-invariant";
@@ -19,17 +20,21 @@ export const loader = async ({ params }: LoaderArgs) => {
 
   return json({
     header: letter.header,
+    time: letter.createdAt,
     html,
   });
 };
 
 const LetterPage = () => {
-  const { header, html } = useLoaderData<typeof loader>();
+  const { header, html, time } = useLoaderData<typeof loader>();
 
   return (
     <main className="mx-auto flex w-96 flex-col items-start text-left">
       <h1 className="py-10 text-3xl font-extrabold">{header}</h1>
       <p dangerouslySetInnerHTML={{ __html: html }} />
+      <span className="pt-10 text-sm">
+        Published at: {formatRFC7231(parseJSON(time))}
+      </span>
     </main>
   );
 };
