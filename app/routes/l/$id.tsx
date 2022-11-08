@@ -1,4 +1,4 @@
-import { json, type LoaderArgs } from "@remix-run/node";
+import { json, type MetaFunction, type LoaderArgs } from "@remix-run/node";
 import { useCatch, useLoaderData } from "@remix-run/react";
 import { formatRFC7231, parseJSON } from "date-fns";
 import { marked } from "marked";
@@ -29,13 +29,18 @@ const LetterPage = () => {
   const { header, html, time } = useLoaderData<typeof loader>();
 
   return (
-    <main className="mx-auto flex w-96 flex-col items-start text-left">
-      <h1 className="py-10 text-3xl font-extrabold">{header}</h1>
-      <p dangerouslySetInnerHTML={{ __html: html }} />
-      <span className="pt-10 text-sm">
-        Published at: {formatRFC7231(parseJSON(time))}
-      </span>
-    </main>
+    <>
+      <head>
+        <title>{header}</title>
+      </head>
+      <main className="mx-auto flex w-96 flex-col items-start text-left">
+        <h1 className="py-10 text-3xl font-extrabold">{header}</h1>
+        <p dangerouslySetInnerHTML={{ __html: html }} />
+        <span className="pt-10 text-sm">
+          Published at: {formatRFC7231(parseJSON(time))}
+        </span>
+      </main>
+    </>
   );
 };
 
