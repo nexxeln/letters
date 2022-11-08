@@ -39,3 +39,12 @@ export const CatchBoundary = () => {
 
   throw new Error(`Unsupported thrown Response status code: ${caught.status}`);
 };
+
+export const ErrorBoundary = ({ error }: { error: Error }) => {
+  return (
+    <main>
+      Oh no! Something went wrong!
+      <pre>{error.message}</pre>
+    </main>
+  );
+};
