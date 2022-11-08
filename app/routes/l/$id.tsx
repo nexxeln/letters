@@ -16,6 +16,9 @@ export const meta: MetaFunction<typeof loader> = ({ data, params }) => {
 
   return {
     title: data.header,
+    "twitter:image": `https://og.nxl.sh/api/wal?title=${data.header}`,
+    "twitter:card": "summary_large_image",
+    "twitter:title": data.header,
   };
 };
 
