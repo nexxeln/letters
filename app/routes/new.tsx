@@ -61,7 +61,7 @@ const NewPage = () => {
             type="text"
             placeholder="Header"
             required
-            className="w-96 rounded  border border-neutral-800 bg-neutral-900 px-4 py-2 placeholder:text-neutral-500 focus:outline-none"
+            className="w-96 rounded bg-neutral-900 px-4 py-2 placeholder:text-neutral-500"
           />
           <label htmlFor="content" className="font-semibold">
             Content
@@ -76,15 +76,17 @@ const NewPage = () => {
             rows={15}
             placeholder="Your letter content goes here"
             required
-            className="w-96 rounded  border border-neutral-800 bg-neutral-900 px-4 py-2 placeholder:text-neutral-500 focus:outline-none"
+            className="w-96 rounded bg-neutral-900 px-4 py-2 placeholder:text-neutral-500"
           />
 
           <button
             type="submit"
-            className="rounded border border-neutral-700 bg-neutral-800 p-2 px-4 disabled:cursor-not-allowed disabled:opacity-50"
+            className="px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={loading}
           >
-            Next
+            <span className="link px-2 py-1">
+              {loading ? "Creating" : "Submit"}
+            </span>
           </button>
         </div>
       </Form>
