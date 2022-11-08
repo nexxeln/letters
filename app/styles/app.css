@@ -80,3 +80,17 @@ html {
 body {
   @apply bg-dark font-inter text-gray-300;
 }
+
+.link {
+  text-decoration: none;
+  background: linear-gradient(to right, #d1d5db, #d1d5db),
+    linear-gradient(to right, #ff1e57, #8b54a2, #0096ff);
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+.link:hover {
+  background-size: 0 3px, 100% 3px;
+}
