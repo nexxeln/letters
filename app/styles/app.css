@@ -39,6 +39,15 @@
 
 @font-face {
   font-family: "Inter";
+  src: local("Inter BoldItalic"), local("Inter-BoldItalic"),
+    url("/fonts/Inter-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
   src: local("Inter Medium"), local("Inter-Medium"),
     url("/fonts/Inter-Medium.woff2") format("woff2");
   font-weight: 500;
@@ -52,6 +61,15 @@
     url("/fonts/Inter-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: local("Inter Italic"), local("Inter-Italic"),
+    url("/fonts/Inter-Italic.woff2") format("woff2");
+  font-weight: normal;
+  font-style: italic;
   font-display: swap;
 }
 
