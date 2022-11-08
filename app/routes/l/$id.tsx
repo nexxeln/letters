@@ -1,33 +1,23 @@
 import { json, type LoaderArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useCatch, useLoaderData } from "@remix-run/react";
+import invariant from "tiny-invariant";
 import { getLetterFromId } from "~/services/letters.server";
 
 export const loader = async ({ params }: LoaderArgs) => {
-  const id = params.id!;
+  const { id } = params;
+  invariant(id, "id is required");
 
   const letter = await getLetterFromId({ id });
 
-  if (!letter)
-    return json({
-      header: null,
-      content: null,
-      error: true,
-      errorMessage: "Couldn't fetch data",
-    });
+  if (!letter) {
+    throw new Response("Not Found", { status: 404 });
+  }
 
-  return json({
-    ...letter,
-    error: false,
-    errorMessage: null,
-  });
+  return json(letter);
 };
 
 const LetterPage = () => {
   const data = useLoaderData<typeof loader>();
-
-  if (data.error) {
-    return <main>{data.errorMessage}</main>;
-  }
 
   return (
     <main>
@@ -39,3 +29,13 @@ const LetterPage = () => {
 };
 
 export default LetterPage;
+
+export const CatchBoundary = () => {
+  const caught = useCatch();
+
+  if (caught.status === 404) {
+    return <main>Letter not Found</main>;
+  }
+
+  throw new Error(`Unsupported thrown Response status code: ${caught.status}`);
+};
