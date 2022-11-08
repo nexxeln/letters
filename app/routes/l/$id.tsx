@@ -1,10 +1,23 @@
-import { json, type LoaderArgs } from "@remix-run/node";
+import { json, type MetaFunction, type LoaderArgs } from "@remix-run/node";
 import { useCatch, useLoaderData } from "@remix-run/react";
 import { formatRFC7231, parseJSON } from "date-fns";
 import { marked } from "marked";
 import sanitize from "sanitize-html";
 import invariant from "tiny-invariant";
 import { getLetterFromId } from "~/services/letters.server";
+
+export const meta: MetaFunction<typeof loader> = ({ data, params }) => {
+  if (!data) {
+    return {
+      title: "Letter Not Found",
+      description: `There is not letter with the id ${params.id}`,
+    };
+  }
+
+  return {
+    title: data.header,
+  };
+};
 
 export const loader = async ({ params }: LoaderArgs) => {
   const { id } = params;
