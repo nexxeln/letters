@@ -87,14 +87,34 @@ p {
 
 .link {
   text-decoration: none;
-  background: linear-gradient(to right, #d1d5db, #d1d5db),
-    linear-gradient(to right, #ff1e57, #8b54a2, #0096ff);
-  background-size: 100% 3px, 0 3px;
-  background-position: 100% 100%, 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 400ms;
+  position: relative;
+  isolation: isolate;
 }
 
-.link:hover {
-  background-size: 0 3px, 100% 3px;
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -7%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: white;
+  z-index: -1;
+}
+.link::before {
+  content: '';
+  position: absolute;
+  bottom: -7%;
+  right: 0;
+  width: 0%;
+  height: 3px;
+  z-index: 1;
+  background: linear-gradient(to right, #ff1e57, #8b54a2, #0096ff);
+
+  transition: width 0.3s ease-in-out;
+}
+
+.link:hover::before {
+  width: 100%;
+  left: 0;
 }
