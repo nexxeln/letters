@@ -81,10 +81,10 @@ const NewPage = () => {
 
           <button
             type="submit"
-            className="px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="py-2 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={loading}
           >
-            <span className="link px-2 py-1">
+            <span className="link  py-1">
               {loading ? "Publishing" : "Publish"}
             </span>
           </button>
