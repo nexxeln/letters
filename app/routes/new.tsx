@@ -22,7 +22,7 @@ export const action = async ({ request }: ActionArgs) => {
   };
 
   const hasErrors =
-    errors.content === null && errors.content === null ? false : true;
+    errors.header === null && errors.content === null ? false : true;
 
   if (hasErrors) {
     return json<ActionData>(errors);
